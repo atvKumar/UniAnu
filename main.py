@@ -1,4 +1,20 @@
-from translator import unicode_to_indica, indica_to_unicode
+# from translator import unicode_to_indica, indica_to_unicode
+from unicode_to_indica import convertToindica as unicode_to_indica
+from indica_to_unicode import convertTounicode as indica_to_unicode
+from unicode_to_roman import convertToroman as unicode_to_roman
+from roman_to_unicode import convertTounicode as roman_to_unicode
+from unicode_to_indoweb import convertToindoweb as unicode_to_indoweb
+from indoweb_to_unicode import convertTounicode as indoweb_to_unicode
+from unicode_to_tscii import convertTotscii as unicode_to_tscii
+from tscii_to_unicode import convertTounicode as tscii_to_unicode
+from unicode_to_tab import convertTotab as unicode_to_tab
+from tab_to_unicode import convertTounicode as tab_to_unicode
+from unicode_to_tam import convertTotam as unicode_to_tam
+from tam_to_unicode import convertTounicode as tam_to_unicode
+from unicode_to_anjal import convertToanjal as unicode_to_anjal
+from anjal_to_unicode import convertTounicode as anjal_to_unicode
+from unicode_to_murasoli import convertTomurasoli as unicode_to_murasoli
+from murasoli_to_unicode import convertTounicode as murasoli_to_unicode
 import wx
 import goslate
 
@@ -6,7 +22,7 @@ import goslate
 class UniAnu(wx.Frame):
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, id=wx.ID_ANY,
-                          title=u"UniAnu Translator version 1.0",
+                          title=u"UniAnu Translator version 2.0",
                           pos=wx.DefaultPosition, size=wx.Size(500, 600),
                           style=wx.DEFAULT_FRAME_STYLE | wx.TAB_TRAVERSAL)
 
@@ -31,7 +47,14 @@ class UniAnu(wx.Frame):
         fgSizer1.SetFlexibleDirection(wx.BOTH)
         fgSizer1.SetNonFlexibleGrowMode(wx.FLEX_GROWMODE_SPECIFIED)
 
-        cb_translationChoices = [u"unicode to indica", u"indica to unicode"]
+        cb_translationChoices = [u"unicode to indica", u"indica to unicode",
+                                 u"unicode to roman", u"roman to unicode",
+                                 u"unicode to indoweb", u"indoweb to unicode",
+                                 u"unicode to tscii", u"tscii to unicode",
+                                 u"unicode to tab", u"tab to unicode",
+                                 u"unicode to tam", u"tam to unicode",
+                                 u"unicode to anjal", u"anjal to unicode",
+                                 u"unicode to murasoli", u"murasoli to unicode"]
         self.cb_translation = wx.Choice(self, wx.ID_ANY, wx.DefaultPosition,
                                         wx.DefaultSize, cb_translationChoices,
                                         0)
@@ -121,9 +144,66 @@ class UniAnu(wx.Frame):
                     self.tc_source.AppendText('\n'+pre_translate)
                     self.tc_destination.AppendText(
                         unicode_to_indica(pre_translate)+'\n')
-            else:
+            elif (self.cb_translation.GetCurrentSelection() == 1 and
+                    self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
                     indica_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 2 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_roman(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 3 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    roman_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 4 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_indoweb(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 5 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    indoweb_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 6 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_tscii(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 7 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    tscii_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 8 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_tab(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 9 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    tab_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 10 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_tam(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 11 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    tam_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 12 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_anjal(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 13 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    anjal_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 14 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_murasoli(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 15 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    murasoli_to_unicode(' ' + line)+'\n')
         event.Skip()
 
 def main():
