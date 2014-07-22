@@ -1,10 +1,21 @@
-UniAnu
+TATS (Tamil Transliteration Software)
 ======
 
-Unicode to Indica Translator
+Tamil Transliteration Software
 
-A translator to translate unicode (tamil) to indica (tamil) and back
-Currently developed and tested on mac only.
+A transliteration to translate unicode to specific tamil fonts and back.
+Fonts supported as follows
+
+1. Unicode (Tamil)
+2. Indica (Mac)
+3. Romanised Tamil
+4. Anjal
+5. Bamini
+6. TSCII
+7. TAB
+8. TAM
+9. Murasoli
+10. Indoweb
 
 For more infomation on anufonts please visit:
 http://www.anufonts.com/
