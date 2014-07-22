@@ -20,4 +20,8 @@ Fonts supported as follows
 For more infomation on anufonts please visit:
 http://www.anufonts.com/
 
+Compiled Beta Version Downloads Here:
+Mac - https://db.tt/Qc4VqzlT
+Win - https://db.tt/G7Ubpf5D
+
 License - Apache License 2.0
