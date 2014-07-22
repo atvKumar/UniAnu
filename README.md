@@ -19,3 +19,5 @@ Fonts supported as follows
 
 For more infomation on anufonts please visit:
 http://www.anufonts.com/
+
+License - Apache License 2.0
