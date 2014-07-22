@@ -18,6 +18,8 @@ def convertToindica(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஓ", u"{")
     translated = translated.replace(u"ஔ", u"¡")
     translated = translated.replace(u"ஃ", u"‡")
+    translated = translated.replace(u"ௐ", u"{D")
+    translated = translated.replace(u"ஸ்ரீ", u"p")
 
     # க Family
     translated = translated.replace(u"க்", u"¬")
@@ -346,6 +348,21 @@ def convertToindica(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஹி", u"N")
     translated = translated.replace(u"ஹா", u"«V")
     translated = translated.replace(u"ஹ", u"«")
+
+    # க்ஷ Family
+    translated = translated.replace(u"க்ஷ்", u"’")
+    translated = translated.replace(u"க்ஷௌ", u"ÿ≥e")
+    translated = translated.replace(u"க்ஷோ", u"º≥V")
+    translated = translated.replace(u"க்ஷொ", u"ÿ≥V")
+    translated = translated.replace(u"க்ஷை", u"Á≥")
+    translated = translated.replace(u"க்ஷே", u"º≥")
+    translated = translated.replace(u"க்ஷெ", u"ÿ≥")
+    translated = translated.replace(u"க்ஷூ", u"f")
+    translated = translated.replace(u"க்ஷு", u"Y")
+    translated = translated.replace(u"க்ஷீ", u"»")
+    translated = translated.replace(u"க்ஷி", u"H")
+    translated = translated.replace(u"க்ஷா", u"≥V")
+    translated = translated.replace(u"க்ஷ", u"≥")
 
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]

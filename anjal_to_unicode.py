@@ -18,8 +18,11 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"‹", u"ஓ")
     translated = translated.replace(u"Šã", u"ஔ")
     translated = translated.replace(u"Œ", u"ஃ")
+    translated = translated.replace(u"‹Å", u"ௐ")
+    translated = translated.replace(u"ý", u"ஸ்ரீ")
 
     # க Family
+    translated = translated.replace(u"™", u"க்")
     translated = translated.replace(u"", u"க்")
     translated = translated.replace(u"—ã", u"கௌ")
     translated = translated.replace(u"þ‘", u"கோ")
@@ -74,6 +77,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ó”", u"ஜு")
     translated = translated.replace(u"ó", u"ஜீ")
     translated = translated.replace(u"ó", u"ஜி")
+    translated = translated.replace(u"ó’", u"ஜி")
     translated = translated.replace(u"ó‘", u"ஜா")
     translated = translated.replace(u"ó", u"ஜ")
 
@@ -337,6 +341,21 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ù", u"ஹி")
     translated = translated.replace(u"ù‘", u"ஹா")
     translated = translated.replace(u"ù", u"ஹ")
+
+    # க்ஷ Family
+    translated = translated.replace(u"ü", u"க்ஷ்")
+    translated = translated.replace(u"—ûã", u"க்ஷௌ")
+    translated = translated.replace(u"÷ñõ", u"க்ஷோ")
+    translated = translated.replace(u"—û‘", u"க்ஷொ")
+    translated = translated.replace(u"û", u"க்ஷை")
+    translated = translated.replace(u"þû", u"க்ஷே")
+    translated = translated.replace(u"—û", u"க்ஷெ")
+    translated = translated.replace(u"û•", u"க்ஷூ")
+    translated = translated.replace(u"û”", u"க்ஷு")
+    translated = translated.replace(u"û“", u"க்ஷீ")
+    translated = translated.replace(u"û’", u"க்ஷி")
+    translated = translated.replace(u"û‘", u"க்ஷா")
+    translated = translated.replace(u"û", u"க்ஷ")
 
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]

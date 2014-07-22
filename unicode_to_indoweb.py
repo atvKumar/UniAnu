@@ -18,6 +18,8 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஓ", u"Ø")
     translated = translated.replace(u"ஔ", u"øó")
     translated = translated.replace(u"ஃ", u"þ")
+    translated = translated.replace(u"ௐ", u"ØÐ")
+    translated = translated.replace(u"ஸ்ரீ", u"¤")
 
     # க Family
     translated = translated.replace(u"க்", u"æÐ")
@@ -329,6 +331,21 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஹி", u"Á¨")
     translated = translated.replace(u"ஹா", u"Áè")
     translated = translated.replace(u"ஹ", u"Á")
+
+    # க்ஷ Family
+    translated = translated.replace(u"க்ஷ்", u"ÂÐ")
+    translated = translated.replace(u"க்ஷௌ", u"âÂó")
+    translated = translated.replace(u"க்ஷோ", u"îÂè")
+    translated = translated.replace(u"க்ஷொ", u"âÂè")
+    translated = translated.replace(u"க்ஷை", u"éÂ")
+    translated = translated.replace(u"க்ஷே", u"îÂ")
+    translated = translated.replace(u"க்ஷெ", u"âÂ")
+    translated = translated.replace(u"க்ஷூ", u"Âð")
+    translated = translated.replace(u"க்ஷு", u"Â¦")
+    translated = translated.replace(u"க்ஷீ", u"Â©")
+    translated = translated.replace(u"க்ஷி", u"Âð")
+    translated = translated.replace(u"க்ஷா", u"Âè")
+    translated = translated.replace(u"க்ஷ", u"Â")
 
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]

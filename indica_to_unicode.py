@@ -18,6 +18,8 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"{", u"ஓ")
     translated = translated.replace(u"¡", u"ஔ")
     translated = translated.replace(u"‡", u"ஃ")
+    translated = translated.replace(u"{D", u"ௐ")
+    translated = translated.replace(u"p", u"ஸ்ரீ")
 
     # க Family
     translated = translated.replace(u"¬", u"க்")
@@ -346,6 +348,22 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"N", u"ஹி")
     translated = translated.replace(u"«V", u"ஹா")
     translated = translated.replace(u"«", u"ஹ")
+
+    # க்ஷ Family
+    translated = translated.replace(u"’", u"க்ஷ்")
+    translated = translated.replace(u"ÿ≥e", u"க்ஷௌ")
+    translated = translated.replace(u"º≥V", u"க்ஷோ")
+    translated = translated.replace(u"ÿ≥V", u"க்ஷொ")
+    translated = translated.replace(u"Á≥", u"க்ஷை")
+    translated = translated.replace(u"º≥", u"க்ஷே")
+    translated = translated.replace(u"ÿ≥", u"க்ஷெ")
+    translated = translated.replace(u"f", u"க்ஷூ")
+    translated = translated.replace(u"Y", u"க்ஷு")
+    translated = translated.replace(u"»", u"க்ஷீ")
+    translated = translated.replace(u"H", u"க்ஷி")
+    translated = translated.replace(u"≥V", u"க்ஷா")
+    translated = translated.replace(u"≥", u"க்ஷ")
+
 
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]

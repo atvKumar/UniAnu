@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from string import punctuation, whitespace, digits
 
-#TODO - need to check indoweb for extra letters to add like js source
+
 def convertTounicode(source_text, filtered=False, debug=False):
     translated = source_text
     # Independent Vowels
@@ -18,6 +18,8 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"Ø", u"ஓ")
     translated = translated.replace(u"øó", u"ஔ")
     translated = translated.replace(u"þ", u"ஃ")
+    translated = translated.replace(u"ØÐ", u"ௐ")
+    translated = translated.replace(u"¤", u"ஸ்ரீ")
 
     # க Family
     translated = translated.replace(u"æÐ", u"க்")
@@ -329,6 +331,21 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"Á¨", u"ஹி")
     translated = translated.replace(u"Áè", u"ஹா")
     translated = translated.replace(u"Á", u"ஹ")
+
+    # க்ஷ Family
+    translated = translated.replace(u"ÂÐ", u"க்ஷ்")
+    translated = translated.replace(u"âÂó", u"க்ஷௌ")
+    translated = translated.replace(u"îÂè", u"க்ஷோ")
+    translated = translated.replace(u"âÂè", u"க்ஷொ")
+    translated = translated.replace(u"éÂ", u"க்ஷை")
+    translated = translated.replace(u"îÂ", u"க்ஷே")
+    translated = translated.replace(u"âÂ", u"க்ஷெ")
+    translated = translated.replace(u"Âð", u"க்ஷூ")
+    translated = translated.replace(u"Â¦", u"க்ஷு")
+    translated = translated.replace(u"Â©", u"க்ஷீ")
+    translated = translated.replace(u"Âð", u"க்ஷி")
+    translated = translated.replace(u"Âè", u"க்ஷா")
+    translated = translated.replace(u"Â", u"க்ஷ")
 
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]

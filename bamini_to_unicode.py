@@ -348,6 +348,13 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"`", u"ஹ")
 
     translated = translated.replace(u"=", u"ஸ்ரீ")
+    translated = translated.replace(u">", u",")
+    # translated = translated.replace(u"ää", u",")
+    translated = translated.replace(u"'", u"\\\"")
+    translated = translated.replace(u"'", u"\\‘")
+    translated = translated.replace(u"'", u"\\’")
+    translated = translated.replace(u"'", u"\\“")
+    translated = translated.replace(u"'", u"\\”")
 
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]

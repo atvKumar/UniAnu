@@ -347,6 +347,13 @@ def convertTobamini(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஹ", u"`")
 
     translated = translated.replace(u"ஸ்ரீ", u"=")
+    translated = translated.replace(u",", u">")
+    # translated = translated.replace(u",", u"ää")
+    translated = translated.replace(u"\\\"", u"'")
+    translated = translated.replace(u"\\‘", u"'")
+    translated = translated.replace(u"\\’", u"'")
+    translated = translated.replace(u"\\“", u"'")
+    translated = translated.replace(u"\\”", u"'")
 
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]
