@@ -17,11 +17,11 @@ Fonts supported as follows
 9. Murasoli
 10. Indoweb
 
-For more infomation on anufonts please visit:
+For more infomation on anufonts please visit:  
 http://www.anufonts.com/
 
-Compiled Beta Version Downloads Here
-Mac - https://db.tt/Qc4VqzlT
+Compiled Beta Version Downloads Here:    
+Mac - https://db.tt/Qc4VqzlT  
 Win - https://db.tt/G7Ubpf5D
 
 License - Apache License 2.0
