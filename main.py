@@ -15,14 +15,16 @@ from unicode_to_anjal import convertToanjal as unicode_to_anjal
 from anjal_to_unicode import convertTounicode as anjal_to_unicode
 from unicode_to_murasoli import convertTomurasoli as unicode_to_murasoli
 from murasoli_to_unicode import convertTounicode as murasoli_to_unicode
+from unicode_to_bamini import convertTobamini as unicode_to_bamini
+from bamini_to_unicode import convertTounicode as bamini_to_unicode
 import wx
 import goslate
 
 
-class UniAnu(wx.Frame):
+class Tats(wx.Frame):
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, id=wx.ID_ANY,
-                          title=u"UniAnu Translator version 2.0",
+                          title=u"TATS (Tamil Transliteration System) 2.0",
                           pos=wx.DefaultPosition, size=wx.Size(500, 600),
                           style=wx.DEFAULT_FRAME_STYLE | wx.TAB_TRAVERSAL)
 
@@ -47,14 +49,16 @@ class UniAnu(wx.Frame):
         fgSizer1.SetFlexibleDirection(wx.BOTH)
         fgSizer1.SetNonFlexibleGrowMode(wx.FLEX_GROWMODE_SPECIFIED)
 
-        cb_translationChoices = [u"unicode to indica", u"indica to unicode",
+        cb_translationChoices = [u"unicode to indica (mac)",
+                                 u"indica (mac) to unicode",
                                  u"unicode to roman", u"roman to unicode",
                                  u"unicode to indoweb", u"indoweb to unicode",
                                  u"unicode to tscii", u"tscii to unicode",
                                  u"unicode to tab", u"tab to unicode",
                                  u"unicode to tam", u"tam to unicode",
                                  u"unicode to anjal", u"anjal to unicode",
-                                 u"unicode to murasoli", u"murasoli to unicode"]
+                                 u"unicode to murasoli", u"murasoli to unicode",
+                                 u"unicode to bamini", u"bamini to unicode"]
         self.cb_translation = wx.Choice(self, wx.ID_ANY, wx.DefaultPosition,
                                         wx.DefaultSize, cb_translationChoices,
                                         0)
@@ -204,11 +208,19 @@ class UniAnu(wx.Frame):
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
                     murasoli_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 16 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_bamini(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 17 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    bamini_to_unicode(' ' + line)+'\n')
         event.Skip()
 
 def main():
     app = wx.App(False)
-    appFrm = UniAnu(None)
+    appFrm = Tats(None)
     appFrm.Show(True)
     app.MainLoop()
 
