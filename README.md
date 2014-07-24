@@ -16,9 +16,13 @@ Fonts supported as follows
 8. TAM
 9. Murasoli
 10. Indoweb
+11. Shree Lipi
 
 For more infomation on anufonts please visit:  
-http://www.anufonts.com/
+http://www.anufonts.com/  
+
+For more infomation on Shree Lipi please visit:  
+http://www.modular-infotech.com/html/shreelipi.html
 
 Compiled Beta Version Downloads Here:    
 Mac - https://db.tt/Qc4VqzlT  
