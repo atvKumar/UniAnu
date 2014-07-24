@@ -17,6 +17,8 @@ from unicode_to_murasoli import convertTomurasoli as unicode_to_murasoli
 from murasoli_to_unicode import convertTounicode as murasoli_to_unicode
 from unicode_to_bamini import convertTobamini as unicode_to_bamini
 from bamini_to_unicode import convertTounicode as bamini_to_unicode
+from unicode_to_shreelipi import convertToshreelipi as unicode_to_shreelipi
+from shreelipi_to_unicode import convertTounicode as shreelipi_to_unicode
 import wx
 import goslate
 
@@ -58,7 +60,9 @@ class Tats(wx.Frame):
                                  u"unicode to tam", u"tam to unicode",
                                  u"unicode to anjal", u"anjal to unicode",
                                  u"unicode to murasoli", u"murasoli to unicode",
-                                 u"unicode to bamini", u"bamini to unicode"]
+                                 u"unicode to bamini", u"bamini to unicode",
+                                 u"unicode to ShreeLipi",
+                                 u"ShreeLipi to unicode"]
         self.cb_translation = wx.Choice(self, wx.ID_ANY, wx.DefaultPosition,
                                         wx.DefaultSize, cb_translationChoices,
                                         0)
@@ -216,6 +220,14 @@ class Tats(wx.Frame):
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
                     bamini_to_unicode(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 18 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    unicode_to_shreelipi(' ' + line)+'\n')
+            elif (self.cb_translation.GetCurrentSelection() == 19 and
+                    self.tc_source.GetValue()):
+                self.tc_destination.AppendText(
+                    shreelipi_to_unicode(' ' + line)+'\n')
         event.Skip()
 
 def main():
