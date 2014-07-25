@@ -17,6 +17,7 @@ Fonts supported as follows
 9. Murasoli
 10. Indoweb
 11. Shree Lipi
+12. Anu fonts (win)
 
 For more infomation on anufonts please visit:  
 http://www.anufonts.com/  
