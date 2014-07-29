@@ -33,10 +33,10 @@ English to Tamil Dictionary please visit:
 http://dictionary.tamilcube.com  
 
 English to Tamil Translation please visit:  
-https://translate.google.com  
+http://translate.google.com  
 
 Compiled Beta Version Downloads Here:    
 Mac - https://db.tt/QZsgFtoZ  
-Win - https://db.tt/G7Ubpf5D
+Win - https://db.tt/4RyDrybU
 
 License - Apache License 2.0
