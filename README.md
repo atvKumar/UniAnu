@@ -17,7 +17,11 @@ Fonts supported as follows
 9. Murasoli
 10. Indoweb
 11. Shree Lipi
-12. Anu fonts (win)
+12. Anu fonts (win)  
+
+- English to Tamil
+- Numbers to Unicode
+- English to Tamil Dictionary
 
 For more infomation on anufonts please visit:  
 http://www.anufonts.com/  
@@ -25,8 +29,14 @@ http://www.anufonts.com/
 For more infomation on Shree Lipi please visit:  
 http://www.modular-infotech.com/html/shreelipi.html
 
+English to Tamil Dictionary please visit:  
+http://dictionary.tamilcube.com  
+
+English to Tamil Translation please visit:  
+https://translate.google.com  
+
 Compiled Beta Version Downloads Here:    
-Mac - https://db.tt/Qc4VqzlT  
+Mac - https://db.tt/QZsgFtoZ  
 Win - https://db.tt/G7Ubpf5D
 
 License - Apache License 2.0
