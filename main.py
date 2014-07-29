@@ -21,6 +21,8 @@ from unicode_to_shreelipi import convertToshreelipi as unicode_to_shreelipi
 from shreelipi_to_unicode import convertTounicode as shreelipi_to_unicode
 from unicode_to_anu import convertToanu as unicode_to_anu
 from anu_to_unicode import convertTounicode as anu_to_unicode
+from number_to_unicode import numberTounicode as number_to_unicode
+from dictionary import TamilCube_Eng2Tm as english_to_tamil
 import wx
 import goslate
 
@@ -28,7 +30,7 @@ import goslate
 class Tats(wx.Frame):
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, id=wx.ID_ANY,
-                          title=u"TATS (Tamil Transliteration System) 2.0",
+                          title=u"TATS (Tamil Transliteration System) 3.0",
                           pos=wx.DefaultPosition, size=wx.Size(500, 600),
                           style=wx.DEFAULT_FRAME_STYLE | wx.TAB_TRAVERSAL)
 
@@ -47,6 +49,11 @@ class Tats(wx.Frame):
                                      wx.DefaultPosition, wx.DefaultSize,
                                      wx.TE_MULTILINE)
         main_sizer.Add(self.tc_source, 1, wx.ALL | wx.EXPAND, 5)
+
+        self.btn_dict = wx.Button(self, wx.ID_ANY,
+                                  u"English to Tamil Dictionary Search",
+                                  wx.DefaultPosition, wx.DefaultSize, 0)
+        main_sizer.Add(self.btn_dict, 0, wx.ALL | wx.ALIGN_RIGHT, 5)
 
         fgSizer1 = wx.FlexGridSizer(0, 3, 0, 0)
         fgSizer1.AddGrowableCol(0)
@@ -67,6 +74,7 @@ class Tats(wx.Frame):
                                  u"ShreeLipi to unicode",
                                  u"unicode to Anufonts (win)",
                                  u"Anufonts (win) to unicode"]
+
         self.cb_translation = wx.Choice(self, wx.ID_ANY, wx.DefaultPosition,
                                         wx.DefaultSize, cb_translationChoices,
                                         0)
@@ -82,6 +90,30 @@ class Tats(wx.Frame):
         fgSizer1.Add(self.btn_translate, 0, wx.ALL | wx.ALIGN_RIGHT, 5)
 
         main_sizer.Add(fgSizer1, 0, wx.EXPAND | wx.ALIGN_RIGHT, 5)
+
+        fgSizer2 = wx.FlexGridSizer(0, 4, 0, 0)
+        fgSizer2.AddGrowableCol(0)
+        fgSizer2.SetFlexibleDirection(wx.BOTH)
+        fgSizer2.SetNonFlexibleGrowMode(wx.FLEX_GROWMODE_SPECIFIED)
+
+        self.cb_number = wx.CheckBox(self, wx.ID_ANY, u"Number Conversion",
+                                     wx.DefaultPosition, wx.DefaultSize, 0)
+        # self.cb_number.Disable()
+        fgSizer2.Add(self.cb_number, 0, wx.ALL | wx.ALIGN_RIGHT, 5)
+
+        self.cb_filter = wx.CheckBox(self, wx.ID_ANY, u"Filtered Output",
+                                     wx.DefaultPosition, wx.DefaultSize, 0)
+        fgSizer2.Add(self.cb_filter, 0, wx.ALL, 5)
+
+        self.cb_debug = wx.CheckBox(self, wx.ID_ANY, u"Debug Output",
+                                    wx.DefaultPosition, wx.DefaultSize, 0)
+        fgSizer2.Add(self.cb_debug, 0, wx.ALL, 5)
+
+        self.btn_swap = wx.Button(self, wx.ID_ANY, u"^ Swap",
+                                  wx.DefaultPosition, wx.DefaultSize, 0)
+        fgSizer2.Add(self.btn_swap, 0, wx.ALL, 5)
+
+        main_sizer.Add(fgSizer2, 0, wx.EXPAND, 5)
 
         self.tc_destination = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString,
                                           wx.DefaultPosition, wx.DefaultSize,
@@ -103,11 +135,13 @@ class Tats(wx.Frame):
 
         # Connect Events
         self.fp_source.Bind(wx.EVT_FONTPICKER_CHANGED, self.source_font_changed)
+        self.btn_dict.Bind(wx.EVT_BUTTON, self.dictionary_search)
         self.cb_translation.Bind(wx.EVT_CHOICE, self.translation_selected)
         self.cb_google.Bind(wx.EVT_CHECKBOX, self.google_translate)
         self.btn_translate.Bind(wx.EVT_BUTTON, self.translate)
         self.fp_destination.Bind(wx.EVT_FONTPICKER_CHANGED,
                                  self.destination_font_changed)
+        self.btn_swap.Bind(wx.EVT_BUTTON, self.swap)
 
         # Variables
         self.gs = goslate.Goslate()
@@ -115,6 +149,17 @@ class Tats(wx.Frame):
     def __del__(self):
         pass
 
+    def dictionary_search(self, event):
+        search_term = str(self.tc_source.GetValue())
+        self.tc_source.Clear()
+        for line in english_to_tamil(search_term):
+            self.tc_source.AppendText(line + '\n')
+
+    def swap(self, event):
+        self.tc_source.Clear()
+        self.tc_source.SetValue(self.tc_destination.GetValue())
+        self.tc_destination.Clear()
+        event.Skip()
 
         # Virtual event handlers, overide them in your derived class
     def source_font_changed(self, event):
@@ -144,102 +189,116 @@ class Tats(wx.Frame):
             self.cb_google.SetValue(False)
         event.Skip()
 
+    def convert_number(self):
+        source_text = self.tc_source.GetValue()
+        numbers_extracted = [int(s) for s in source_text.split() if s.isdigit()]
+        for num in numbers_extracted:
+            # uni_num = unicode(str(num), 'utf-8')
+            source_text = source_text.replace(str(num), number_to_unicode(num))
+        # self.tc_source.Clear()
+        self.tc_source.SetValue(source_text)
+
     def translate(self, event):
+        cbfilter = self.cb_filter.GetValue()
+        cbdebug = self.cb_debug.GetValue()
         self.tc_destination.Clear()
+        if self.cb_number.GetValue():
+            self.convert_number()
         for i, line in enumerate(self.tc_source.GetValue().split('\n')):
             if (self.cb_translation.GetCurrentSelection() == 0 and
                     self.tc_source.GetValue()):
                 if not self.cb_google.GetValue():
-                    self.tc_destination.AppendText(unicode_to_indica(line)+'\n')
+                    self.tc_destination.AppendText(
+                        unicode_to_indica(line, cbfilter, cbdebug)+'\n')
                 else:
                     pre_translate = self.gs.translate(line, 'ta')
                     self.tc_source.AppendText('\n'+pre_translate)
                     self.tc_destination.AppendText(
-                        unicode_to_indica(pre_translate)+'\n')
+                        unicode_to_indica(pre_translate, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 1 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    indica_to_unicode(' ' + line)+'\n')
+                    indica_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 2 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_roman(' ' + line)+'\n')
+                    unicode_to_roman(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 3 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    roman_to_unicode(' ' + line)+'\n')
+                    roman_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 4 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_indoweb(' ' + line)+'\n')
+                    unicode_to_indoweb(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 5 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    indoweb_to_unicode(' ' + line)+'\n')
+                    indoweb_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 6 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_tscii(' ' + line)+'\n')
+                    unicode_to_tscii(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 7 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    tscii_to_unicode(' ' + line)+'\n')
+                    tscii_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 8 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_tab(' ' + line)+'\n')
+                    unicode_to_tab(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 9 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    tab_to_unicode(' ' + line)+'\n')
+                    tab_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 10 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_tam(' ' + line)+'\n')
+                    unicode_to_tam(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 11 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    tam_to_unicode(' ' + line)+'\n')
+                    tam_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 12 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_anjal(' ' + line)+'\n')
+                    unicode_to_anjal(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 13 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    anjal_to_unicode(' ' + line)+'\n')
+                    anjal_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 14 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_murasoli(' ' + line)+'\n')
+                    unicode_to_murasoli(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 15 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    murasoli_to_unicode(' ' + line)+'\n')
+                    murasoli_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 16 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_bamini(' ' + line)+'\n')
+                    unicode_to_bamini(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 17 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    bamini_to_unicode(' ' + line)+'\n')
+                    bamini_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 18 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_shreelipi(' ' + line)+'\n')
+                    unicode_to_shreelipi(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 19 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    shreelipi_to_unicode(' ' + line)+'\n')
+                    shreelipi_to_unicode(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 20 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    unicode_to_anu(' ' + line)+'\n')
+                    unicode_to_anu(line, cbfilter, cbdebug)+'\n')
             elif (self.cb_translation.GetCurrentSelection() == 21 and
                     self.tc_source.GetValue()):
                 self.tc_destination.AppendText(
-                    anu_to_unicode(' ' + line)+'\n')
+                    anu_to_unicode(line, cbfilter, cbdebug)+'\n')
         event.Skip()
 
 def main():
