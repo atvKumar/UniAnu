@@ -20,7 +20,7 @@ Fonts supported as follows
 12. Anu fonts (win)
 
 English to Tamil  
-Numbers to Unicode  
+Numbers to Unicode (8 digits Max)  
 English to Tamil Dictionary  
 
 For more infomation on anufonts please visit:  
