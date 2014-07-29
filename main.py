@@ -153,7 +153,7 @@ class Tats(wx.Frame):
         search_term = str(self.tc_source.GetValue())
         self.tc_source.Clear()
         for line in english_to_tamil(search_term):
-            self.tc_source.AppendText(line + '\n')
+            self.tc_source.AppendText(unicode(line, 'utf-8') + '\n')
 
     def swap(self, event):
         self.tc_source.Clear()
