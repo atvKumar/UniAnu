@@ -4,7 +4,7 @@ from string import punctuation, whitespace, digits
 
 def convertToindoweb(source_text, filtered=False, debug=False):
     translated = source_text
-    # Independent Vowels
+    
     translated = translated.replace(u"அ", u"í")
     translated = translated.replace(u"ஆ", u"Í")
     translated = translated.replace(u"இ", u"¬")
@@ -20,8 +20,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஃ", u"þ")
     translated = translated.replace(u"ௐ", u"ØÐ")
     translated = translated.replace(u"ஸ்ரீ", u"¤")
-
-    # க Family
+    
     translated = translated.replace(u"க்", u"æÐ")
     translated = translated.replace(u"கௌ", u"âæó")
     translated = translated.replace(u"கோ", u"îæè")
@@ -35,8 +34,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"கி", u"æ¨")
     translated = translated.replace(u"கா", u"æè")
     translated = translated.replace(u"க", u"æ")
-
-    # ங Family
+    
     translated = translated.replace(u"ங்", u"§Ð")
     translated = translated.replace(u"ஙௌ", u"â§ó")
     translated = translated.replace(u"ஙோ", u"î§è")
@@ -50,8 +48,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஙி", u"§¨")
     translated = translated.replace(u"ஙா", u"§è")
     translated = translated.replace(u"ங", u"§")
-
-    # ச Family
+    
     translated = translated.replace(u"ச்", u"òÐ")
     translated = translated.replace(u"சௌ", u"âòó")
     translated = translated.replace(u"சோ", u"îòè")
@@ -65,8 +62,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"சி", u"ò¨")
     translated = translated.replace(u"சா", u"òè")
     translated = translated.replace(u"ச", u"ò")
-
-    # ஜ Family
+    
     translated = translated.replace(u"ஜ்", u"£Ð")
     translated = translated.replace(u"ஜௌ", u"â£ó")
     translated = translated.replace(u"ஜோ", u"î£è")
@@ -80,8 +76,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஜி", u"£¨")
     translated = translated.replace(u"ஜா", u"£è")
     translated = translated.replace(u"ஜ", u"£")
-
-    # ஞ Family
+    
     translated = translated.replace(u"ஞ்", u"¢Ð")
     translated = translated.replace(u"ஞௌ", u"â¢ó")
     translated = translated.replace(u"ஞோ", u"î¢è")
@@ -95,8 +90,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஞி", u"¢¨")
     translated = translated.replace(u"ஞா", u"¢è")
     translated = translated.replace(u"ஞ", u"¢")
-
-    # ட Family
+    
     translated = translated.replace(u"ட்", u"ìÐ")
     translated = translated.replace(u"டௌ", u"âìó")
     translated = translated.replace(u"டோ", u"îìè")
@@ -107,12 +101,11 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"டூ", u"Þ")
     translated = translated.replace(u"டு", u"Ì")
     translated = translated.replace(u"டீ", u"Ï")
-    translated = translated.replace(u"டி", u"ì¨")
+    translated = translated.replace(u"டி", u"ï")
     translated = translated.replace(u"டா", u"ìè")
     translated = translated.replace(u"ட", u"ì")
-
-    # ண Family
-    translated = translated.replace(u"ண்", u"úÐ")
+    
+    translated = translated.replace(u"ண்", u"úª")
     translated = translated.replace(u"ணௌ", u"âúó")
     translated = translated.replace(u"ணோ", u"îúè")
     translated = translated.replace(u"ணொ", u"âúè")
@@ -125,11 +118,10 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ணி", u"ú¨")
     translated = translated.replace(u"ணா", u"úè")
     translated = translated.replace(u"ண", u"ú")
-
-    # த Family
+    
     translated = translated.replace(u"த்", u"êÐ")
     translated = translated.replace(u"தௌ", u"âêó")
-    translated = translated.replace(u"தோ", u"êêè")
+    translated = translated.replace(u"தோ", u"îêè")
     translated = translated.replace(u"தொ", u"âêè")
     translated = translated.replace(u"தை", u"éê")
     translated = translated.replace(u"தே", u"îê")
@@ -140,8 +132,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"தி", u"ê¨")
     translated = translated.replace(u"தா", u"êè")
     translated = translated.replace(u"த", u"ê")
-
-    # ந Family
+    
     translated = translated.replace(u"ந்", u"åÐ")
     translated = translated.replace(u"நௌ", u"âåó")
     translated = translated.replace(u"நோ", u"îåè")
@@ -155,9 +146,8 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"நி", u"å¨")
     translated = translated.replace(u"நா", u"åè")
     translated = translated.replace(u"ந", u"å")
-
-    # ன Family
-    translated = translated.replace(u"ன்", u"äÐ")
+    
+    translated = translated.replace(u"ன்", u"äª")
     translated = translated.replace(u"னௌ", u"âäó")
     translated = translated.replace(u"னோ", u"îäè")
     translated = translated.replace(u"னொ", u"âäè")
@@ -170,8 +160,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"னி", u"ä¨")
     translated = translated.replace(u"னா", u"äè")
     translated = translated.replace(u"ன", u"ä")
-
-    # ப Family
+    
     translated = translated.replace(u"ப்", u"çÐ")
     translated = translated.replace(u"பௌ", u"âçó")
     translated = translated.replace(u"போ", u"îçè")
@@ -185,8 +174,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"பி", u"ç¨")
     translated = translated.replace(u"பா", u"çè")
     translated = translated.replace(u"ப", u"ç")
-
-    # ம Family
+    
     translated = translated.replace(u"ம்", u"ëÐ")
     translated = translated.replace(u"மௌ", u"âëó")
     translated = translated.replace(u"மோ", u"îëè")
@@ -200,8 +188,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"மி", u"ë¨")
     translated = translated.replace(u"மா", u"ëè")
     translated = translated.replace(u"ம", u"ë")
-
-    # ய Family
+    
     translated = translated.replace(u"ய்", u"áÐ")
     translated = translated.replace(u"யௌ", u"âáó")
     translated = translated.replace(u"யோ", u"îáè")
@@ -215,10 +202,10 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"யி", u"á¨")
     translated = translated.replace(u"யா", u"áè")
     translated = translated.replace(u"ய", u"á")
-
-    # ர Family
-    translated = translated.replace(u"ர்", u"èÐ")
-    translated = translated.replace(u"ரௌ", u"âõõ")
+    
+    translated = translated.replace(u"ர்", u"õÐ")
+    # translated = translated.replace(u"ர்", u"èÐ")  # Added
+    translated = translated.replace(u"ரௌ", u"âõó")
     translated = translated.replace(u"ரோ", u"îõè")
     translated = translated.replace(u"ரொ", u"âõè")
     translated = translated.replace(u"ரை", u"éõ")
@@ -226,12 +213,13 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ரெ", u"âõ")
     translated = translated.replace(u"ரூ", u"¥")
     translated = translated.replace(u"ரு", u"Õ")
-    translated = translated.replace(u"ரீ", u"è©")
-    translated = translated.replace(u"ரி", u"è¨")
+    translated = translated.replace(u"ரீ", u"õ©")
+    # translated = translated.replace(u"ரீ", u"è©")  # Added
+    translated = translated.replace(u"ரி", u"õ¨")
+    # translated = translated.replace(u"ரி", u"¨è")  # Added
     translated = translated.replace(u"ரா", u"õè")
     translated = translated.replace(u"ர", u"õ")
-
-    # ற Family
+    
     translated = translated.replace(u"ற்", u"÷Ð")
     translated = translated.replace(u"றௌ", u"â÷ó")
     translated = translated.replace(u"றோ", u"î÷è")
@@ -245,8 +233,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"றி", u"÷¨")
     translated = translated.replace(u"றா", u"÷è")
     translated = translated.replace(u"ற", u"÷")
-
-    # ல Family
+    
     translated = translated.replace(u"ல்", u"ùÐ")
     translated = translated.replace(u"லௌ", u"âùó")
     translated = translated.replace(u"லோ", u"îùè")
@@ -260,9 +247,8 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"லி", u"ù¨")
     translated = translated.replace(u"லா", u"ùè")
     translated = translated.replace(u"ல", u"ù")
-
-    # ள Family
-    translated = translated.replace(u"ள்", u"óÐ")
+    
+    translated = translated.replace(u"ள்", u"óª")
     translated = translated.replace(u"ளௌ", u"âóó")
     translated = translated.replace(u"ளோ", u"îóè")
     translated = translated.replace(u"ளொ", u"âóè")
@@ -275,8 +261,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ளி", u"ó¨")
     translated = translated.replace(u"ளா", u"óè")
     translated = translated.replace(u"ள", u"ó")
-
-    # ழ Family
+    
     translated = translated.replace(u"ழ்", u"ÈÐ")
     translated = translated.replace(u"ழௌ", u"âÈó")
     translated = translated.replace(u"ழோ", u"îÈè")
@@ -290,8 +275,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ழி", u"È¨")
     translated = translated.replace(u"ழா", u"Èè")
     translated = translated.replace(u"ழ", u"È")
-
-    # வ Family
+    
     translated = translated.replace(u"வ்", u"ôÐ")
     translated = translated.replace(u"வௌ", u"âôó")
     translated = translated.replace(u"வோ", u"îôè")
@@ -305,8 +289,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"வி", u"ô¨")
     translated = translated.replace(u"வா", u"ôè")
     translated = translated.replace(u"வ", u"ô")
-
-    # ஷ Family
+    
     translated = translated.replace(u"ஷ்", u"ÜÐ")
     translated = translated.replace(u"ஷௌ", u"âÜó")
     translated = translated.replace(u"ஷோ", u"îÜè")
@@ -314,12 +297,13 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஷை", u"éÜ")
     translated = translated.replace(u"ஷே", u"îÜ")
     translated = translated.replace(u"ஷெ", u"âÜ")
+    translated = translated.replace(u"ஷூ", u"Üð")
+    translated = translated.replace(u"ஷு", u"Ü¦")
     translated = translated.replace(u"ஷீ", u"Ü©")
     translated = translated.replace(u"ஷி", u"Ü¨")
     translated = translated.replace(u"ஷா", u"Üè")
     translated = translated.replace(u"ஷ", u"Ü")
-
-    # ஹ Family
+    
     translated = translated.replace(u"ஹ்", u"ÁÐ")
     translated = translated.replace(u"ஹௌ", u"âÁó")
     translated = translated.replace(u"ஹோ", u"îÁè")
@@ -331,28 +315,13 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஹி", u"Á¨")
     translated = translated.replace(u"ஹா", u"Áè")
     translated = translated.replace(u"ஹ", u"Á")
-
-    # க்ஷ Family
-    translated = translated.replace(u"க்ஷ்", u"ÂÐ")
-    translated = translated.replace(u"க்ஷௌ", u"âÂó")
-    translated = translated.replace(u"க்ஷோ", u"îÂè")
-    translated = translated.replace(u"க்ஷொ", u"âÂè")
-    translated = translated.replace(u"க்ஷை", u"éÂ")
-    translated = translated.replace(u"க்ஷே", u"îÂ")
-    translated = translated.replace(u"க்ஷெ", u"âÂ")
-    translated = translated.replace(u"க்ஷூ", u"Âð")
-    translated = translated.replace(u"க்ஷு", u"Â¦")
-    translated = translated.replace(u"க்ஷீ", u"Â©")
-    translated = translated.replace(u"க்ஷி", u"Âð")
-    translated = translated.replace(u"க்ஷா", u"Âè")
-    translated = translated.replace(u"க்ஷ", u"Â")
-
+    
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]
     translated_trimed = ''.join([i for i in translated if not i in unconverted])
 
     if debug:
-        return unconverted
+        return ''.join(unconverted)
     elif filtered:
         return translated_trimed
     else:

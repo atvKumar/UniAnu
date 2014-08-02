@@ -3,8 +3,8 @@ from unicode_to_indica import convertToindica as unicode_to_indica
 from indica_to_unicode import convertTounicode as indica_to_unicode
 from unicode_to_roman import convertToroman as unicode_to_roman
 from roman_to_unicode import convertTounicode as roman_to_unicode
-from unicode_to_indoweb import convertToindoweb as unicode_to_indoweb
-from indoweb_to_unicode import convertTounicode as indoweb_to_unicode
+from unicode_to_indoword import convertToindoweb as unicode_to_indoweb
+from indoword_to_unicode import convertTounicode as indoweb_to_unicode
 from unicode_to_tscii import convertTotscii as unicode_to_tscii
 from tscii_to_unicode import convertTounicode as tscii_to_unicode
 from unicode_to_tab import convertTotab as unicode_to_tab

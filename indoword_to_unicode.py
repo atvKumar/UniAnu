@@ -4,7 +4,7 @@ from string import punctuation, whitespace, digits
 
 def convertTounicode(source_text, filtered=False, debug=False):
     translated = source_text
-    # Independent Vowels
+    
     translated = translated.replace(u"í", u"அ")
     translated = translated.replace(u"Í", u"ஆ")
     translated = translated.replace(u"¬", u"இ")
@@ -20,8 +20,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"þ", u"ஃ")
     translated = translated.replace(u"ØÐ", u"ௐ")
     translated = translated.replace(u"¤", u"ஸ்ரீ")
-
-    # க Family
+    
     translated = translated.replace(u"æÐ", u"க்")
     translated = translated.replace(u"âæó", u"கௌ")
     translated = translated.replace(u"îæè", u"கோ")
@@ -35,8 +34,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"æ¨", u"கி")
     translated = translated.replace(u"æè", u"கா")
     translated = translated.replace(u"æ", u"க")
-
-    # ங Family
+    
     translated = translated.replace(u"§Ð", u"ங்")
     translated = translated.replace(u"â§ó", u"ஙௌ")
     translated = translated.replace(u"î§è", u"ஙோ")
@@ -50,8 +48,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"§¨", u"ஙி")
     translated = translated.replace(u"§è", u"ஙா")
     translated = translated.replace(u"§", u"ங")
-
-    # ச Family
+    
     translated = translated.replace(u"òÐ", u"ச்")
     translated = translated.replace(u"âòó", u"சௌ")
     translated = translated.replace(u"îòè", u"சோ")
@@ -65,8 +62,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ò¨", u"சி")
     translated = translated.replace(u"òè", u"சா")
     translated = translated.replace(u"ò", u"ச")
-
-    # ஜ Family
+    
     translated = translated.replace(u"£Ð", u"ஜ்")
     translated = translated.replace(u"â£ó", u"ஜௌ")
     translated = translated.replace(u"î£è", u"ஜோ")
@@ -80,8 +76,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"£¨", u"ஜி")
     translated = translated.replace(u"£è", u"ஜா")
     translated = translated.replace(u"£", u"ஜ")
-
-    # ஞ Family
+    
     translated = translated.replace(u"¢Ð", u"ஞ்")
     translated = translated.replace(u"â¢ó", u"ஞௌ")
     translated = translated.replace(u"î¢è", u"ஞோ")
@@ -95,8 +90,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"¢¨", u"ஞி")
     translated = translated.replace(u"¢è", u"ஞா")
     translated = translated.replace(u"¢", u"ஞ")
-
-    # ட Family
+    
     translated = translated.replace(u"ìÐ", u"ட்")
     translated = translated.replace(u"âìó", u"டௌ")
     translated = translated.replace(u"îìè", u"டோ")
@@ -107,12 +101,11 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"Þ", u"டூ")
     translated = translated.replace(u"Ì", u"டு")
     translated = translated.replace(u"Ï", u"டீ")
-    translated = translated.replace(u"ì¨", u"டி")
+    translated = translated.replace(u"ï", u"டி")
     translated = translated.replace(u"ìè", u"டா")
     translated = translated.replace(u"ì", u"ட")
-
-    # ண Family
-    translated = translated.replace(u"úÐ", u"ண்")
+    
+    translated = translated.replace(u"úª", u"ண்")
     translated = translated.replace(u"âúó", u"ணௌ")
     translated = translated.replace(u"îúè", u"ணோ")
     translated = translated.replace(u"âúè", u"ணொ")
@@ -125,11 +118,10 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ú¨", u"ணி")
     translated = translated.replace(u"úè", u"ணா")
     translated = translated.replace(u"ú", u"ண")
-
-    # த Family
+    
     translated = translated.replace(u"êÐ", u"த்")
     translated = translated.replace(u"âêó", u"தௌ")
-    translated = translated.replace(u"êêè", u"தோ")
+    translated = translated.replace(u"îêè", u"தோ")
     translated = translated.replace(u"âêè", u"தொ")
     translated = translated.replace(u"éê", u"தை")
     translated = translated.replace(u"îê", u"தே")
@@ -140,8 +132,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ê¨", u"தி")
     translated = translated.replace(u"êè", u"தா")
     translated = translated.replace(u"ê", u"த")
-
-    # ந Family
+    
     translated = translated.replace(u"åÐ", u"ந்")
     translated = translated.replace(u"âåó", u"நௌ")
     translated = translated.replace(u"îåè", u"நோ")
@@ -155,9 +146,8 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"å¨", u"நி")
     translated = translated.replace(u"åè", u"நா")
     translated = translated.replace(u"å", u"ந")
-
-    # ன Family
-    translated = translated.replace(u"äÐ", u"ன்")
+    
+    translated = translated.replace(u"äª", u"ன்")
     translated = translated.replace(u"âäó", u"னௌ")
     translated = translated.replace(u"îäè", u"னோ")
     translated = translated.replace(u"âäè", u"னொ")
@@ -170,8 +160,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ä¨", u"னி")
     translated = translated.replace(u"äè", u"னா")
     translated = translated.replace(u"ä", u"ன")
-
-    # ப Family
+    
     translated = translated.replace(u"çÐ", u"ப்")
     translated = translated.replace(u"âçó", u"பௌ")
     translated = translated.replace(u"îçè", u"போ")
@@ -185,8 +174,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ç¨", u"பி")
     translated = translated.replace(u"çè", u"பா")
     translated = translated.replace(u"ç", u"ப")
-
-    # ம Family
+    
     translated = translated.replace(u"ëÐ", u"ம்")
     translated = translated.replace(u"âëó", u"மௌ")
     translated = translated.replace(u"îëè", u"மோ")
@@ -200,8 +188,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ë¨", u"மி")
     translated = translated.replace(u"ëè", u"மா")
     translated = translated.replace(u"ë", u"ம")
-
-    # ய Family
+    
     translated = translated.replace(u"áÐ", u"ய்")
     translated = translated.replace(u"âáó", u"யௌ")
     translated = translated.replace(u"îáè", u"யோ")
@@ -215,10 +202,10 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"á¨", u"யி")
     translated = translated.replace(u"áè", u"யா")
     translated = translated.replace(u"á", u"ய")
-
-    # ர Family
-    translated = translated.replace(u"èÐ", u"ர்")
-    translated = translated.replace(u"âõõ", u"ரௌ")
+    
+    translated = translated.replace(u"õÐ", u"ர்")
+    translated = translated.replace(u"èÐ", u"ர்")  # Added
+    translated = translated.replace(u"âõó", u"ரௌ")
     translated = translated.replace(u"îõè", u"ரோ")
     translated = translated.replace(u"âõè", u"ரொ")
     translated = translated.replace(u"éõ", u"ரை")
@@ -226,12 +213,13 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"âõ", u"ரெ")
     translated = translated.replace(u"¥", u"ரூ")
     translated = translated.replace(u"Õ", u"ரு")
-    translated = translated.replace(u"è©", u"ரீ")
-    translated = translated.replace(u"è¨", u"ரி")
+    translated = translated.replace(u"õ©", u"ரீ")
+    translated = translated.replace(u"è©", u"ரீ")  # Added
+    translated = translated.replace(u"õ¨", u"ரி")
+    translated = translated.replace(u"è¨", u"ரி")  # Added
     translated = translated.replace(u"õè", u"ரா")
     translated = translated.replace(u"õ", u"ர")
-
-    # ற Family
+    
     translated = translated.replace(u"÷Ð", u"ற்")
     translated = translated.replace(u"â÷ó", u"றௌ")
     translated = translated.replace(u"î÷è", u"றோ")
@@ -245,8 +233,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"÷¨", u"றி")
     translated = translated.replace(u"÷è", u"றா")
     translated = translated.replace(u"÷", u"ற")
-
-    # ல Family
+    
     translated = translated.replace(u"ùÐ", u"ல்")
     translated = translated.replace(u"âùó", u"லௌ")
     translated = translated.replace(u"îùè", u"லோ")
@@ -260,9 +247,8 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ù¨", u"லி")
     translated = translated.replace(u"ùè", u"லா")
     translated = translated.replace(u"ù", u"ல")
-
-    # ள Family
-    translated = translated.replace(u"óÐ", u"ள்")
+    
+    translated = translated.replace(u"óª", u"ள்")
     translated = translated.replace(u"âóó", u"ளௌ")
     translated = translated.replace(u"îóè", u"ளோ")
     translated = translated.replace(u"âóè", u"ளொ")
@@ -275,8 +261,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ó¨", u"ளி")
     translated = translated.replace(u"óè", u"ளா")
     translated = translated.replace(u"ó", u"ள")
-
-    # ழ Family
+    
     translated = translated.replace(u"ÈÐ", u"ழ்")
     translated = translated.replace(u"âÈó", u"ழௌ")
     translated = translated.replace(u"îÈè", u"ழோ")
@@ -290,8 +275,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"È¨", u"ழி")
     translated = translated.replace(u"Èè", u"ழா")
     translated = translated.replace(u"È", u"ழ")
-
-    # வ Family
+    
     translated = translated.replace(u"ôÐ", u"வ்")
     translated = translated.replace(u"âôó", u"வௌ")
     translated = translated.replace(u"îôè", u"வோ")
@@ -305,8 +289,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ô¨", u"வி")
     translated = translated.replace(u"ôè", u"வா")
     translated = translated.replace(u"ô", u"வ")
-
-    # ஷ Family
+    
     translated = translated.replace(u"ÜÐ", u"ஷ்")
     translated = translated.replace(u"âÜó", u"ஷௌ")
     translated = translated.replace(u"îÜè", u"ஷோ")
@@ -314,12 +297,13 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"éÜ", u"ஷை")
     translated = translated.replace(u"îÜ", u"ஷே")
     translated = translated.replace(u"âÜ", u"ஷெ")
+    translated = translated.replace(u"Üð", u"ஷூ")
+    translated = translated.replace(u"Ü¦", u"ஷு")
     translated = translated.replace(u"Ü©", u"ஷீ")
     translated = translated.replace(u"Ü¨", u"ஷி")
     translated = translated.replace(u"Üè", u"ஷா")
     translated = translated.replace(u"Ü", u"ஷ")
-
-    # ஹ Family
+    
     translated = translated.replace(u"ÁÐ", u"ஹ்")
     translated = translated.replace(u"âÁó", u"ஹௌ")
     translated = translated.replace(u"îÁè", u"ஹோ")
@@ -331,28 +315,13 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"Á¨", u"ஹி")
     translated = translated.replace(u"Áè", u"ஹா")
     translated = translated.replace(u"Á", u"ஹ")
-
-    # க்ஷ Family
-    translated = translated.replace(u"ÂÐ", u"க்ஷ்")
-    translated = translated.replace(u"âÂó", u"க்ஷௌ")
-    translated = translated.replace(u"îÂè", u"க்ஷோ")
-    translated = translated.replace(u"âÂè", u"க்ஷொ")
-    translated = translated.replace(u"éÂ", u"க்ஷை")
-    translated = translated.replace(u"îÂ", u"க்ஷே")
-    translated = translated.replace(u"âÂ", u"க்ஷெ")
-    translated = translated.replace(u"Âð", u"க்ஷூ")
-    translated = translated.replace(u"Â¦", u"க்ஷு")
-    translated = translated.replace(u"Â©", u"க்ஷீ")
-    translated = translated.replace(u"Âð", u"க்ஷி")
-    translated = translated.replace(u"Âè", u"க்ஷா")
-    translated = translated.replace(u"Â", u"க்ஷ")
-
+    
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]
     translated_trimed = ''.join([i for i in translated if not i in unconverted])
 
     if debug:
-        return unconverted
+        return ''.join(unconverted)
     elif filtered:
         return translated_trimed
     else:
