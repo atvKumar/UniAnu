@@ -316,6 +316,9 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஹா", u"Áè")
     translated = translated.replace(u"ஹ", u"Á")
     
+    translated = translated.replace(u"்" , u"ª")  # Added
+    translated = translated.replace(u"ி" , u"¨")  # Added
+    
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]
     translated_trimed = ''.join([i for i in translated if not i in unconverted])

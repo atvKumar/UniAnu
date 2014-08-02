@@ -315,6 +315,9 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"Á¨", u"ஹி")
     translated = translated.replace(u"Áè", u"ஹா")
     translated = translated.replace(u"Á", u"ஹ")
+
+    translated = translated.replace(u"ª", u"்" )  # Added
+    translated = translated.replace(u"¨", u"ி" )  # Added
     
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]
