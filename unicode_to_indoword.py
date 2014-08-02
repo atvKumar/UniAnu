@@ -4,6 +4,14 @@ from string import punctuation, whitespace, digits
 
 def convertToindoweb(source_text, filtered=False, debug=False):
     translated = source_text
+
+    translated = translated.replace(u"பு", u"μ")
+    translated = translated.replace(u"ர்", u"õÐ")
+    # translated = translated.replace(u"ர்", u"èÐ")  # Added
+    translated = translated.replace(u"ரீ", u"õ©")
+    # translated = translated.replace(u"ரீ", u"è©")  # Added
+    translated = translated.replace(u"ரி", u"õ¨")
+    # translated = translated.replace(u"ரி", u"¨è")  # Added
     
     translated = translated.replace(u"அ", u"í")
     translated = translated.replace(u"ஆ", u"Í")
@@ -203,8 +211,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"யா", u"áè")
     translated = translated.replace(u"ய", u"á")
     
-    translated = translated.replace(u"ர்", u"õÐ")
-    # translated = translated.replace(u"ர்", u"èÐ")  # Added
+
     translated = translated.replace(u"ரௌ", u"âõó")
     translated = translated.replace(u"ரோ", u"îõè")
     translated = translated.replace(u"ரொ", u"âõè")
@@ -213,10 +220,7 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ரெ", u"âõ")
     translated = translated.replace(u"ரூ", u"¥")
     translated = translated.replace(u"ரு", u"Õ")
-    translated = translated.replace(u"ரீ", u"õ©")
-    # translated = translated.replace(u"ரீ", u"è©")  # Added
-    translated = translated.replace(u"ரி", u"õ¨")
-    # translated = translated.replace(u"ரி", u"¨è")  # Added
+
     translated = translated.replace(u"ரா", u"õè")
     translated = translated.replace(u"ர", u"õ")
     
@@ -315,9 +319,9 @@ def convertToindoweb(source_text, filtered=False, debug=False):
     translated = translated.replace(u"ஹி", u"Á¨")
     translated = translated.replace(u"ஹா", u"Áè")
     translated = translated.replace(u"ஹ", u"Á")
-    
+
     translated = translated.replace(u"்" , u"ª")  # Added
-    translated = translated.replace(u"ி" , u"¨")  # Added
+    # translated = translated.replace(u"ி" , u"¨")  # Added
     
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]

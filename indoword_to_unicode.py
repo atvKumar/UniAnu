@@ -4,6 +4,14 @@ from string import punctuation, whitespace, digits
 
 def convertTounicode(source_text, filtered=False, debug=False):
     translated = source_text
+
+    translated = translated.replace(u"μ", u"பு")
+    translated = translated.replace(u"õ©", u"ரீ")
+    translated = translated.replace(u"è©", u"ரீ")  # Added
+    translated = translated.replace(u"õ¨", u"ரி")
+    translated = translated.replace(u"è¨", u"ரி")  # Added
+    translated = translated.replace(u"õÐ", u"ர்")
+    translated = translated.replace(u"èÐ", u"ர்")  # Added
     
     translated = translated.replace(u"í", u"அ")
     translated = translated.replace(u"Í", u"ஆ")
@@ -203,8 +211,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"áè", u"யா")
     translated = translated.replace(u"á", u"ய")
     
-    translated = translated.replace(u"õÐ", u"ர்")
-    translated = translated.replace(u"èÐ", u"ர்")  # Added
+
     translated = translated.replace(u"âõó", u"ரௌ")
     translated = translated.replace(u"îõè", u"ரோ")
     translated = translated.replace(u"âõè", u"ரொ")
@@ -213,10 +220,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"âõ", u"ரெ")
     translated = translated.replace(u"¥", u"ரூ")
     translated = translated.replace(u"Õ", u"ரு")
-    translated = translated.replace(u"õ©", u"ரீ")
-    translated = translated.replace(u"è©", u"ரீ")  # Added
-    translated = translated.replace(u"õ¨", u"ரி")
-    translated = translated.replace(u"è¨", u"ரி")  # Added
+
     translated = translated.replace(u"õè", u"ரா")
     translated = translated.replace(u"õ", u"ர")
     
@@ -317,7 +321,7 @@ def convertTounicode(source_text, filtered=False, debug=False):
     translated = translated.replace(u"Á", u"ஹ")
 
     translated = translated.replace(u"ª", u"்" )  # Added
-    translated = translated.replace(u"¨", u"ி" )  # Added
+    # translated = translated.replace(u"¨", u"ி" )  # Added
     
     unconverted = [i for i in translated if i in source_text and not i in
                     punctuation+whitespace+digits]
