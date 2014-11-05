@@ -1,6 +1,17 @@
-import urllib
-import urllib2
+from urllib import urlencode
+from urllib2 import Request, urlopen
 
+def getVIEWSTATE(search_term="id=\"__VIEWSTATE\" value=\"/",
+                 url="http://dictionary.tamilcube.com/index.aspx"):
+    response = urlopen(url)
+    data = [x for x in response if search_term in x]
+    return data[0].split('"')[7]
+
+def getEVENTVALIDATION(search_term="id=\"__EVENTVALIDATION\" value=\"/",
+                       url="http://dictionary.tamilcube.com/index.aspx"):
+    response = urlopen(url)
+    data = [x for x in response if search_term in x]
+    return data[0].split('"')[7]
 
 def TamilCube_Eng2Tm(search_term,
                      url="http://dictionary.tamilcube.com/index.aspx"):
@@ -14,18 +25,14 @@ def TamilCube_Eng2Tm(search_term,
 
     #Tamil Cube Form Fields
     formFields = ((r'__EVENTTARGET', r''), (r'__EVENTARGUMENT', r''),
-                  (r'__VIEWSTATE', r"/wEPDwUJNzI2OTY1ODY2ZGT+USYocTWgqVnvgrJNdq"
-                                   r"HahgipM9X34+cTfAJeXeq91w=="),
-                  (r'__EVENTVALIDATION', r'/wEdAAQ9u5MsVEMABr3X9N71X16h7GsfM2YV'
-                                         r'i005lGOvNgWeftVVywmZ4kBIoTw2mza0rfQS'
-                                         r'YOQVAPr9tiF9q7nSHjzoi+sT5c19W6Lxf9E7'
-                                         r'q+QpuOjCZ6Ppf+nxzkSuoRvROm0='),
+                  (r'__VIEWSTATE', getVIEWSTATE()),
+                  (r'__EVENTVALIDATION', getEVENTVALIDATION()),
                   (r'name', search_term), (r'Submit1', r'Search'))
 
-    encodedFields = urllib.urlencode(formFields)
+    encodedFields = urlencode(formFields)
 
-    request = urllib2.Request(url, encodedFields, headers)
-    response= urllib2.urlopen(request)
+    request = Request(url, encodedFields, headers)
+    response= urlopen(request)
 
     for line in response:
         if search_term in line:
