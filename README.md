@@ -36,7 +36,9 @@ English to Tamil Translation please visit:
 http://translate.google.com  
 
 Compiled Beta Version Downloads Here:    
-Mac - https://db.tt/4ne1EYUR  
-Win - https://db.tt/v3WCTDQ8
+Mac - https://db.tt/juZLiOn4  
+Win - https://db.tt/yPDX7W2Y
+
+Archives - https://www.dropbox.com/sh/zfp0sjs5wx853nz/AADmDJGLYK9YGjnYKHw7zSEla?dl=0
 
 License - Apache License 2.0
